@@ -1,0 +1,23 @@
+#!/bin/bash
+
+sleep 2
+echo "==================================="
+echo "AWS S3 BUCKET MISCONFIG UPLOAD TEST"
+echo "==================================="
+
+echo ""
+echo ""
+sleep 1
+echo -e "\e[33m[+] File to upload\e[0m - $1"
+
+echo ""
+
+while read names; do
+  sleep 3
+  echo "---------------------------------------------------------------------"
+  echo -e "\e[32m[!] Testing upload\e[0m - Bucket name: \e[31m$names\e[0m"
+  echo ""
+  aws s3 cp $1 s3://$names
+  echo ""
+  echo ""
+done
